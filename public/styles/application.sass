@@ -11,7 +11,7 @@ body
   
   #header
     +floating_block(999)
-    width: 500px
+    width: 350px
     height: 70px
     top: 5px
     right: 0px
@@ -29,22 +29,25 @@ body
 
     .menu
       +floating_block(999)
-      width: 400px
+      width: 100%
       height: 36px
       top: 14px
       right: 0px
       background-color: darkblue
 
       ul
-        margin-left: 0px
         margin-right: 25px
+        padding: 0px
 
         li
           float: left
           margin-top: -12px
           padding: 5px 10px
           color: white
-          text-transform: uppercase
+          text:
+            shadow: black 2px 1px 3px
+            transform: uppercase
+          list-style: none
 
   #map
     float: right
@@ -54,19 +57,42 @@ body
 
   #content
     +floating_block(999)
-    position: relative
-    width: 100%
+    width: 350px
+    height: 100%
+    left: 75px
+    background-color: yellow
 
   #dialog
     +floating_block(1000)
-    top: 0
-    left: 0
-    right: 0
-    text-align: center
-    font-size: 3em
-    background: green
+    width: 50%
+    height: 50%
+    top: 0px
+    bottom: 0px
+    left: 0px
+    right: 0px
+    margin: auto
+    background-color: green
     border-bottom: 0.1em solid black
-    display: none
+    text-align: center
 
   #footer
     +floating_block(999)
+    height: 24px
+    left: 0px
+    bottom: 35px
+    background-color: darkblue
+
+    ul
+      margin: 0px
+      margin-left: 75px
+      padding: 0px
+      font-size: 10pt
+
+      li
+        float: left
+        padding: 5px 10px
+        color: white
+        text:
+          shadow: black 2px 1px 3px
+          transform: uppercase
+        list-style: none
