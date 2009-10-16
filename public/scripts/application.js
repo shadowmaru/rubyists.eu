@@ -1,6 +1,8 @@
 var map = null;
 var geocoder = null;
+var base_url = null;
 
+/*
 function each(ary, block) {
   for (i in ary) {
     block(ary[i]);
@@ -20,16 +22,6 @@ function findAddress(address, callback) {
         }
       }
     );
-  }
-}
-
-function initialize() {
-  if (GBrowserIsCompatible()) {
-    map = new GMap2(document.getElementById("map"));
-    map.setCenter(new GLatLng(54.0, -6.24), 4);
-    var mapControl = new GLargeMapControl();
-    map.addControl(mapControl);
-    geocoder = new GClientGeocoder();
   }
 }
 
@@ -62,3 +54,37 @@ function showAddress(address) {
     map.setCenter(point, 8);
   });
 }
+*/
+
+jQuery.googleMaps = {
+	initialize: function() {
+		if (GBrowserIsCompatible()) {
+			var mapControl = null;
+			
+			mapControl = new GLargeMapControl();
+			geocoder = new GClientGeocoder();
+		    map = new GMap2(document.getElementById('map'));
+		
+		    map.setCenter(new GLatLng(54.0, -6.24), 4);
+		    map.addControl(mapControl);
+		}
+	}
+}
+
+jQuery.goTo = function(url) {
+	if (base_url == null) {
+		base_url = 'http://' + location.href.substr(7).split('/')[0];
+	}
+
+	location.href = base_url + url;
+}
+
+$(document).ready(function() {
+	$(window).load(function(){$.googleMaps.initialize();});
+	$('li.about').click();
+	$('li.groups').click(function(){$.goTo('/groups');});
+	$('li.search').click();
+	$('div.title').click(function(){$.goTo('/')});
+	$('li.contribute').click(function(){window.open('http://github.com/amsterdamrb/rubyists-eu', '_self');});
+	$('li.license').click(function(){window.open('http://creativecommons.org/licenses/by-nc-sa/3.0/', '_self');});
+});
