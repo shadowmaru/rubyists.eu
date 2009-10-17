@@ -31,6 +31,8 @@ get '/groups' do
 end
 
 get '/groups/new' do
+  # @country = Country.all
+  
   haml :group_form, :layout => false
 end
 

@@ -1,0 +1,17 @@
+%form#group{:action => '/groups/new'}
+  %p
+    %label{:for => 'name'} Name
+    %input{:name => 'name', :type => 'text'}
+  %p
+    %label{:for => 'city'} City
+    %input{:name => 'city', :type => 'text'}
+  %p
+    %label{:for => 'country'} Country
+    %input{:name => 'country', :type => 'text'}
+    -#%select{:name => 'country'}
+      -# for country in @countries
+        -#%option{:value => country.code}= country.name
+  %p
+    %label{:for => 'website'} Website
+    %input{:name => 'website', :type => 'text'}
+  %input{:type => 'submit', :value => 'Add Group'}
