@@ -1,4 +1,4 @@
-%form#group{:action => '/groups/new'}
+%form.groupform{:action => '/groups/new', :method => 'post'}
   %p
     %label{:for => 'name'} Name
     %input{:name => 'name', :type => 'text'}
@@ -7,10 +7,9 @@
     %input{:name => 'city', :type => 'text'}
   %p
     %label{:for => 'country'} Country
-    %input{:name => 'country', :type => 'text'}
-    -#%select{:name => 'country'}
-      -# for country in @countries
-        -#%option{:value => country.code}= country.name
+    %select{:name => 'country'}
+      - for country in @countries
+        %option{:value => country.code}= country.name
   %p
     %label{:for => 'website'} Website
     %input{:name => 'website', :type => 'text'}
