@@ -70,8 +70,10 @@ class Group
   property :id, Serial
   property :name, String, :nullable => false, :format => PATTERN_NAME
   property :city, String, :nullable => false, :format => PATTERN_NAME
-  property :website, String, :nullable => true, :format => PATTERN_URL
-  property :created_at, Date, :nullable => false
+  property :website, String, :nullable => true
+  property :created_at, DateTime, :nullable => false
+  
+  validates_format :website, :as => PATTERN_URL, :unless => Proc.new {|group| group.website.empty? }
   
   before :save do
     throw :halt if Country.get(country_code).nil?
