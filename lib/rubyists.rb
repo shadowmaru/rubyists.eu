@@ -1,10 +1,3 @@
-require 'dm-core'
-require 'dm-validations'
-require 'dm-aggregates'
-require 'json'
+$LOAD_PATH << File.join(File.dirname(__FILE__), 'rubyists')
 
-require 'rubyists/resource'
-require 'rubyists/json'
-require 'rubyists/user'
-require 'rubyists/country'
-require 'rubyists/group'
+require 'model'
