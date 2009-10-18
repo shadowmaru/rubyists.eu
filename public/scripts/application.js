@@ -71,6 +71,10 @@ jQuery.googleMaps = {
 	}
 }
 
+jQuery.fn.openLink = function(url) {
+	$(this).click(function(){window.open(url, '_self');});
+}
+
 jQuery.goTo = function(url) {
 	if (base_url == null) {
 		base_url = 'http://' + location.href.substr(7).split('/')[0];
@@ -81,10 +85,36 @@ jQuery.goTo = function(url) {
 
 $(document).ready(function() {
 	$(window).load(function(){$.googleMaps.initialize();});
-	$('li.about').click();
-	$('li.groups').click(function(){$.goTo('/groups');});
-	$('li.search').click();
-	$('div.title').click(function(){$.goTo('/')});
-	$('li.contribute').click(function(){window.open('http://github.com/amsterdamrb/rubyists-eu', '_self');});
-	$('li.license').click(function(){window.open('http://creativecommons.org/licenses/by-nc-sa/3.0/', '_self');});
+	// Header.
+	$('.about').click(function(){
+		$('#dialog').css({'width': '700px', 'height': '500px'});
+		$('#dialog').fadeIn('slow', function(){
+			$('#map, #content').css({'opacity': '0.65'});
+			$('#dialog > .text').load('/about');
+		});
+	});
+	$('.groups').click(function(){$.goTo('/groups');});
+	//$('li.search').click();
+	$('.title').click(function(){$.goTo('/')});
+	// Dialog.
+	$('#dialog > .close').click(function(){
+		$('#dialog').fadeOut('slow', function(){
+			$('#map, #content').css({'opacity': '1.0'});
+			$('#dialog > .text').html("");
+		});
+	});
+	$('.actions > ul > .add').click(function(){
+		$('#dialog').css({'width': '500px', 'height': '300px'});
+		$('#dialog').fadeIn('slow', function(){
+			$('#map, #content').css({'opacity': '0.65'});
+			$('#dialog > .text').load('/groups/new');
+		});
+	});
+	// Content.
+	// ...
+	// Footer.
+	$('.twitter').openLink('http://twitter.com/rubyists_eu');
+	$('.mailing').openLink('http://groups.google.com/group/rubyists-eu');
+	$('.contribute').openLink('http://github.com/amsterdamrb/rubyists-eu');
+	$('.license').openLink('http://creativecommons.org/licenses/by-nc-sa/3.0/');
 });
