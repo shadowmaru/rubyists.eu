@@ -1,35 +1,16 @@
 #groups
   %h4 Ruby User Groups in Europe
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name
-    %p City, Country
+  - if @groups.empty?
+    .group
+      %p There are no Groups added yet.
+  - else
+    - for group in @groups
+      .group
+        - if group.website.empty?
+          %p= group.name
+        - else
+          %a{:href => group.website}= group.name
+        %p= "#{group.city}, #{group.country.name}"
   .actions
     %ul
       -#%li.prev Previous 10 Groups

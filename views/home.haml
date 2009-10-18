@@ -1,20 +1,16 @@
 #groups
   %h4 latest groups added
-  .group
-    %a{:href => '#'} Group Name #1
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name #2
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name #3
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name #4
-    %p City, Country
-  .group
-    %a{:href => '#'} Group Name #5
-    %p City, Country
+  - if @groups.empty?
+    .group
+      %p There are no Groups added yet.
+  - else
+    - for group in @groups
+      .group
+        - if group.website.empty?
+          %p= group.name
+        - else
+          %a{:href => group.website}= group.name
+        %p= "#{group.city}, #{group.country.name}"
 
 #events
   %h4 upcoming events
