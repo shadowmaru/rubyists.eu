@@ -97,5 +97,5 @@ class User
 end
 
 DataMapper.setup(:default, (ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/rubyists"))
-DataMapper.auto_migrate!
+production? ? DataMapper.auto_upgrade! : DataMapper.auto_migrate! 
 Country.populate
