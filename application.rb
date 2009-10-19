@@ -12,8 +12,8 @@ configure do
 end
 
 get '/' do
-  @groups = Group.all(:order => [:created_at.desc], :limit => 5)
-  
+  @groups = Group.all(:order => [:created_at.desc], :limit => 10)
+
   haml :home
 end
 
@@ -24,7 +24,8 @@ end
 get '/groups' do
   @groups = Group.all(:order => [:country_code.asc, :city.asc])
   
-  haml :groups
+  request.xhr? ? @groups.to_json :
+                 haml(:groups)
 end
 
 get '/groups/new' do
@@ -47,9 +48,9 @@ post '/groups/new' do
   redirect '/groups'
 end
 
-#get '/ajax/user_groups.js' do
-#  Group.all.to_json
-#end
+get '/countries/:code' do
+  Country.get(params[:code]).to_json
+end
 
 get '/styles/:file' do
   response["Content-Type"] = "text/css; charset=utf-8"
