@@ -43,7 +43,6 @@ post '/groups' do
 end
 
 delete '/groups/:id' do
-  p params[:id]
   group = Group.get(params[:id])
   
   group.destroy

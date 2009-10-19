@@ -31,11 +31,14 @@ jQuery.googleMaps = {
 
 		return country;
 	},
-	findAddress: function(location, callback) {
+	findAddress: function(location, identifier, callback) {
 		if (geocoder) {
 	    	geocoder.getLatLng(location, function(point) {
-				if (!point) {alert(location + " not found");} 
-				else {callback(point);}
+				if (!point) {
+					$.ajax({type: 'DELETE', url: '/groups/' + identifier, async: true});
+					$.goTo('/groups');
+					alert('The given location (' + location + ") was not found on the map.");
+				} else {callback(point);}
 	      	});
 	  	}
 	},
@@ -55,8 +58,10 @@ jQuery.googleMaps = {
 				var country = $.googleMaps.countryOf(group.country_code);
 				var location = group.city + ', ' + country;
 				
-				$.googleMaps.findAddress(location, function(point) {
-					html = '<a href="' + group.website + '"><h3>' + group.name + '</h3></a><p>' + location + '</p>';
+				$.googleMaps.findAddress(location, group.id, function(point) {
+					if (group.website == "") {html = '<h3>' + group.name + '</h3>';}
+					else {html = '<a href="' + group.website + '"><h3>' + group.name + '</h3></a>';}
+					html = html + '<p>' + location + '</p>';
 			    	$.googleMaps.placeMarker(point, html);
 				});				
 			});
