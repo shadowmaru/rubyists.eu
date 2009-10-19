@@ -28,13 +28,7 @@ get '/groups' do
                  haml(:groups)
 end
 
-get '/groups/new' do
-  @countries = Country.all(:order => [:name.asc])
-  
-  haml :group_form, :layout => false
-end
-
-post '/groups/new' do
+post '/groups' do
   group = Group.new
 
   group.name = params[:name]
@@ -46,6 +40,19 @@ post '/groups/new' do
   group.save
   
   redirect '/groups'
+end
+
+delete '/groups/:id' do
+  p params[:id]
+  group = Group.get(params[:id])
+  
+  group.destroy
+end
+
+get '/groups/new' do
+  @countries = Country.all(:order => [:name.asc])
+  
+  haml :group_form, :layout => false
 end
 
 get '/countries/:code' do
