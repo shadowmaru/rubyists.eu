@@ -14,14 +14,18 @@ function showAddress(address) {
 jQuery.googleMaps = {
 	initialize: function() {
 		if (GBrowserIsCompatible()) {
-			var mapControl = null;
+			var mapControl = new GLargeMapControl();
 			
-			mapControl = new GLargeMapControl();
-			geocoder = new GClientGeocoder();
-		    map = new GMap2(document.getElementById('map'));
+			if (!geocoder) {geocoder = new GClientGeocoder();}
 		
+			if (!map) {
+				map = new GMap2(document.getElementById('map'));
+				
+				map.enableScrollWheelZoom();
+				map.addControl(mapControl);
+			}
+			
 		    map.setCenter(new GLatLng(54.0, -6.24), 4);
-		    map.addControl(mapControl);
 		}
 	}, 
 	countryOf: function(code) {
@@ -37,7 +41,7 @@ jQuery.googleMaps = {
 				if (!point) {
 					$.ajax({type: 'DELETE', url: '/groups/' + identifier, async: true});
 					$.goTo('/groups');
-					alert('The given location (' + location + ") was not found on the map.");
+					alert('The given location (' + location + ') was not found on the map.');
 				} else {callback(point);}
 	      	});
 	  	}
