@@ -77,6 +77,13 @@ jQuery.fn.openLink = function(url) {
 	$(this).click(function() {window.open(url, '_self');});
 }
 
+jQuery.fn.opacity = function(value) {
+	var ms_value = value * 100
+	
+	$(this).css({'opacity': value, 'filter': 'alpha(opacity=' + ms_value + ')', 
+				 '-ms-filter': '"progid:DXImageTransform.Microsoft.Alpha(Opacity=' + ms_value + ')"'});
+}
+
 jQuery.goTo = function(url) {
 	if (base_url == null) {
 		base_url = 'http://' + location.href.substr(7).split('/')[0];
@@ -102,14 +109,14 @@ $(document).ready(function() {
 	// Dialog.
 	$('#dialog > .close').click(function() {
 		$('#dialog').fadeOut('slow', function() {
-			$('#map, #content').css({'opacity': '1.0'});
+			$('#map, #content').opacity(1.0);
 			$('#dialog > .text').html("");
 		});
 	});
 	$('.actions > ul > .add').click(function() {
 		$('#dialog').css({'width': '500px', 'height': '300px'});
 		$('#dialog').fadeIn('slow', function() {
-			$('#map, #content').css({'opacity': '0.65'});
+			$('#map, #content').opacity(0.65);
 			$('#dialog > .text').load('/groups/new');
 		});
 	});
