@@ -1,5 +1,3 @@
-$LOAD_PATH << File.join(File.dirname(__FILE__), 'data_model')
-
 require 'dm-core'
 require 'dm-validations'
 require 'dm-serializer/to_json'
