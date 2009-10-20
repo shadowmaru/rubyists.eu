@@ -28,13 +28,6 @@ jQuery.googleMaps = {
 		    map.setCenter(new GLatLng(54.0, -6.24), 4);
 		}
 	}, 
-	countryOf: function(code) {
-		var country = null;
-
-		$.ajax({url: '/countries/' + code, async: false, dataType: 'json', success: function(json) {country = json.name;}});
-
-		return country;
-	},
 	findAddress: function(location, identifier, callback) {
 		if (geocoder) {
 	    	geocoder.getLatLng(location, function(point) {
@@ -59,8 +52,7 @@ jQuery.googleMaps = {
 		$.getJSON('/groups', function(groups) {
 			$.each(groups, function() {
 				var group = this;
-				var country = $.googleMaps.countryOf(group.country_code);
-				var location = group.city + ', ' + country;
+				var location = group.city + ', ' + group.country.name;
 				
 				$.googleMaps.findAddress(location, group.id, function(point) {
 					if (group.website == "") {html = '<h3>' + group.name + '</h3>';}

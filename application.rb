@@ -24,7 +24,7 @@ end
 get '/groups' do
   @groups = Group.all(:order => [:country_code.asc, :city.asc])
   
-  request.xhr? ? @groups.to_json :
+  request.xhr? ? @groups.to_json(:exclude => [:country_code], :methods => [:country]) :
                  haml(:groups)
 end
 
@@ -52,10 +52,6 @@ get '/groups/new' do
   @countries = Country.all(:order => [:name.asc])
   
   haml :group_form, :layout => false
-end
-
-get '/countries/:code' do
-  Country.get(params[:code]).to_json
 end
 
 get '/styles/:file' do
