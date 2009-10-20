@@ -91,7 +91,7 @@ $(document).ready(function() {
 	$('.about').click(function(){
 		$('#dialog').css({'width': '700px', 'height': '500px'});
 		$('#dialog').fadeIn('slow', function(){
-			$('#map, #content').css({'opacity': '0.65'});
+			$('#map, #content').opacity(0.65);
 			$('#dialog > .text').load('/about');
 		});
 	});
