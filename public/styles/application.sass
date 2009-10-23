@@ -100,12 +100,23 @@ body
         border-bottom: 1px dotted black
         cursor: pointer
 
-        a, p
-          margin: 0px
-          margin-left: 10px
-
         &:hover
           background-color: yellow
+
+        img
+          float: left
+          weight: 48px
+          height: 48px
+          margin:
+            top: -5px
+            left: 5px
+
+        p
+          margin: 0px
+          margin-left: 60px
+
+          &.name
+            font-weight: bold
 
       .actions, .pagination
         position: relative
@@ -113,7 +124,6 @@ body
         width: 100%
         margin: 0px
         padding: 0px
-        margin-top: 0px
         overflow: hidden
         background-color: darkblue
         color: white

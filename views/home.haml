@@ -6,8 +6,10 @@
   - else
     - for group in @groups
       .group
+        %img{:src => "/images/flags/#{group.country_code.downcase}.png"}
         - if group.website.empty?
-          %p= group.name
+          %p.name= group.name
         - else
-          %a{:href => group.website}= group.name
-        %p= "#{group.city}, #{group.country.name}"
+          %p.name<
+            %a{:href => group.website}= group.name
+        %p= group.city
