@@ -107,17 +107,16 @@ body
         &:hover
           background-color: yellow
 
-      .actions
+      .actions, .pagination
         position: relative
         float: left
         width: 100%
         margin: 0px
         padding: 0px
-        margin-top: -1px
+        margin-top: 0px
         overflow: hidden
         background-color: darkblue
         color: white
-        border-top: 1px solid black
         font-size: 8pt
 
         ul
@@ -139,6 +138,13 @@ body
 
             &:hover
               font-weight: bold
+
+            a
+              color: white
+              text-decoration: none
+
+              &:hover
+                font-weight: bold
 
   #events
     margin-top: 280px

@@ -11,8 +11,8 @@
         - else
           %a{:href => group.website}= group.name
         %p= "#{group.city}, #{group.country.name}"
+  .pagination
+    = @groups.pager.to_html('/groups', :size => 5)
   .actions
     %ul
-      -#%li.prev Previous 10 Groups
       %li.add Add a Group
-      -#%li.next Next 10 Groups

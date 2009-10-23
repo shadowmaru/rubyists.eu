@@ -7,13 +7,16 @@ require 'sass'
 require 'json'
 
 configure do
-  set :views, File.join(File.dirname(__FILE__), 'views')
+  set :views, File.join(File.dirname(__FILE__), 'views')  
   set :sessions, true
 end
 
 get '/' do
+  session[:page] = 1
+  session[:action] = :home
+  
   @groups = Group.all(:order => [:created_at.desc], :limit => 10)
-
+  
   haml :home
 end
 
@@ -22,8 +25,15 @@ get '/about' do
 end
 
 get '/groups' do
-  @groups = Group.all(:order => [:country_code.asc, :city.asc])
+  session[:page] = params[:page].to_i unless params[:page].nil?
   
+  unless session[:action].nil?
+    @groups = Group.all(:order => [:created_at.desc], :limit => 10)
+    session[:action] = nil
+  else
+    @groups = Group.all(:order => [:city.asc, :country_code.asc]).page(session[:page], :per_page => 10)
+  end
+
   request.xhr? ? @groups.to_json(:exclude => [:country_code], :methods => [:country]) :
                  haml(:groups)
 end

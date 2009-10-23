@@ -53,7 +53,7 @@ jQuery.googleMaps = {
 			$.each(groups, function() {
 				var group = this;
 				var location = group.city + ', ' + group.country.name;
-				
+
 				$.googleMaps.findAddress(location, group.id, function(point) {
 					if (group.website == "") {html = '<h3>' + group.name + '</h3>';}
 					else {html = '<a href="' + group.website + '"><h3>' + group.name + '</h3></a>';}

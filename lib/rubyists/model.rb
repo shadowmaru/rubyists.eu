@@ -1,6 +1,7 @@
 require 'dm-core'
 require 'dm-validations'
 require 'dm-serializer/to_json'
+require 'dm-pager'
 
 PATTERN_CODE = /^[A-Z]{2}$/
 PATTERN_NAME = /^([A-Z][a-z\.\-]*\s?)+$/
