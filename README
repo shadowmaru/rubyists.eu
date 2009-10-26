@@ -1,0 +1,83 @@
+= THE RUBYISTS.EU INITIATIVE
+
+This initiative was born in late September 2009, when the Rock & Code [http://rock-n-code.com] crew realized how isolated European Ruby/Rails User Groups are (in every sense) and how this obstacle can be easily overcome by developing a communications platform that aims at integrating the Rubyists into a dynamic European core through the sharing of information and experience and through better cooperation and collaboration. As a member of the Amsterdam Ruby Group [http://amsterdam-rb.org] and as a founder of a company that occasionally sponsors Ruby events in Amsterdam, Javier Cicchelli shared our vision of Rubyists.EU with the Amsterdam Ruby group. At a certain stage, some of the Amsterdam.rb members volunteered to assist with its functional development.
+
+== Mission
+
+We strive to promote awareness, enhance assistance, and further boost cooperation and collaboration among individual Ruby hackers and Ruby/Rails User Groups throughout Europe.
+
+== Vision
+
+We dream that in time, by forging long-lasting bonds, European Rubyists could foster a sense of belonging to something bigger than their local Ruby communities.
+
+== Message
+
+United we stand out!
+
+= PROJECT
+
+This project is designed to be an extensible client-server architecture entirely built on Open Source technologies. The Ruby programming language [http://www.ruby-lang.org] and the Sinatra web framework [http://sinatrarb.com] have been chosen to be the main orchestrator due to its extreme flexibility, simplicity, and support for REST. The data repository of this project is the PostgreSQL relational database server [http://www.postgresql.com] and its interface provided by DataMapper [http://datamapper.org]. On the front-end side, HAML [http://haml-lang.com] and SASS [http://sass-lang.com] are the perfect tools for generating the HTML structure and CSS representation for the Website. Furthermore, the web interface is powered by the (in)famous Javascript language, JQuery [http://jquery.com], JSON [http://json.org],  and Google Maps API [http://code.google.com/apis/maps/]. Currently, the live version of the website is posted on Heroku [http://heroku.com] due to its easy setup and simple deployment.
+
+== Install
+
+In order to run locally a fork of this project, you need to have installed a version of the Ruby 1.8.X or 1.9.X interpreter [http://www.ruby-lang.org/en/downloads/] and the PostgreSQL [http://www.postgresql.org/download/] database server installed in your machine. You are required to have installed the PostgreSQL libraries in order to compile natively the 'data_objects' and 'do_postgres' gems.
+
+== Dependencies
+
+The main dependencies this project requires are the following gems:
+
+* sinatra >= 0.9.4
+* haml >= 2.2.3
+* dm-core >= 0.10.1
+* dm-validations >= 0.10.1
+* dm-aggregates >= 0.10.1
+* dm-serializer >= 0.10.1
+* dm-pager >= 0.0.7
+* json >= 1.1.3
+* data_objects >= 0.10.0
+* do_postgres >= 0.10.0
+
+== Testing
+
+In the case you would like to execute the different set of tests, you require the following gems:
+
+* cucumber >= 0.4.2
+* rspec >= 1.2.9
+* selenium >= X.X.X
+* webrat >= 0.5.2
+
+= COLLABORATIONS
+
+Everybody is welcome to collaborate to this project with comments, suggestions, constructive criticism, and even write code for a feature! As a firm believer of respect and communication, every person should be able to express themselves in a context of mutual respect and professionalism. This is essential on this project.
+
+== Rules
+
+In the case you would like to collaborate with the development of this ambitious initiative, you should never forget a couple of simple but mandatory rules:
+
+* Follow our Github account.
+* Respect for every person involved, all the time. Any lack of respect will NOT be tolerated!
+* The official language of this project is English.
+* Dialog is essential for the success of this project.
+* Both the roadmap and the features wish-list are published on the Wiki section.
+* In case of doubt, do not be afraid to ask. 
+
+== Collaborators
+
+Here I publish the list of all the people who have collaborated with this initiative so far. 
+
+* Fernando Vezzosi [http://github.com/bucciarati]
+* Gustavo Malamud [http://github.com/gusma]
+* Javier Cicchelli [http://github.com/mr-rock]
+* Mariela Dimitrova [http://github.com/dream-warrior]
+* Wes Oldenbeuving [http://github.com/narnach]
+* Wijnand Wiersma [http://github.com/wijnand]
+
+= GET IN TOUCH
+
+Please, be welcome to join us and do not hesitate to contact us for any reason. We are looking forward hearing from you!
+
+* E-Mail [info@rubyists.eu]
+* Google Group [http://groups.google.com/group/rubyists-eu]
+* LinkedIn [http://www.linkedin.com/groups?gid=2400973]
+* Facebook [http://www.facebook.com/pages/Europe/RubyistsEU/188196555796]
+* Twitter [http://twitter.com/rubyists-eu]
