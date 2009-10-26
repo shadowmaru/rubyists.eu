@@ -16,7 +16,7 @@ United we stand out!
 
 = PROJECT
 
-This project is designed to be an extensible client-server architecture entirely built on Open Source technologies. The Ruby programming language [http://www.ruby-lang.org] and the Sinatra web framework [http://sinatrarb.com] have been chosen to be the main orchestrator due to its extreme flexibility, simplicity, and support for REST. The data repository of this project is the PostgreSQL relational database server [http://www.postgresql.com] and its interface provided by DataMapper [http://datamapper.org]. On the front-end side, HAML [http://haml-lang.com] and SASS [http://sass-lang.com] are the perfect tools for generating the HTML structure and CSS representation for the Website. Furthermore, the web interface is powered by the (in)famous Javascript language, JQuery [http://jquery.com], JSON [http://json.org],  and Google Maps API [http://code.google.com/apis/maps/]. Currently, the live version of the website is posted on Heroku [http://heroku.com] due to its easy setup and automated deployment.
+This project is designed to be an extensible client-server architecture entirely built on Open Source technologies. The Ruby programming language [http://www.ruby-lang.org] and the Sinatra web framework [http://sinatrarb.com] have been chosen to be the main orchestrator due to its extreme flexibility, simplicity, and support for REST. The data repository of this project is the PostgreSQL relational database server [http://www.postgresql.com] and its interface provided by DataMapper [http://datamapper.org]. On the front-end side, HAML [http://haml-lang.com] and SASS [http://sass-lang.com] are the perfect tools for generating the HTML structure and CSS representation for the Website. Furthermore, the web interface is powered by the (in)famous Javascript language, JQuery [http://jquery.com], JSON [http://json.org],  and Google Maps API [http://code.google.com/apis/maps/]. Currently, the live version of the website is posted on Heroku [http://heroku.com] due to its easy setup and simple deployment.
 
 == Install
 
@@ -70,6 +70,7 @@ Here I publish the list of all the people who have collaborated with this initia
 * Javier Cicchelli [http://github.com/mr-rock]
 * Mariela Dimitrova [http://github.com/dream-warrior]
 * Wes Oldenbeuving [http://github.com/narnach]
+* Wijnand Wiersma [http://github.com/wijnand]
 
 = GET IN TOUCH
 
