@@ -1,6 +1,7 @@
 = THE RUBYISTS.EU INITIATIVE
 
-This initiative was born in late September 2009, when the Rock & Code [http://rock-n-code.com] crew realized how isolated European Ruby/Rails User Groups are (in every sense) and how this obstacle can be easily overcome by developing a communications platform that aims at integrating the Rubyists into a dynamic European core through the sharing of information and experience and through better cooperation and collaboration. As a member of the Amsterdam Ruby Group [http://amsterdam-rb.org] and as a founder of a company that occasionally sponsors Ruby events in Amsterdam, Javier Cicchelli shared our vision of Rubyists.EU with the Amsterdam Ruby group. At a certain stage, some of the Amsterdam.rb members volunteered to assist with its functional development.
+This initiative was born in late September 2009, when the Rock & Code [http://rock-n-code.com] crew realized how paradoxically isolated European Ruby/Rails User Groups are and how this obstacle can be easily overcome by developing a communications platform that aims at integrating the Rubyists into a dynamic European core through the sharing of information and experience and through better cooperation and collaboration. As a member of the Amsterdam Ruby Group 
+[http://amsterdam-rb.org] and as a founder of a company that occasionally sponsors Ruby events in Amsterdam, Javier Cicchelli shared our vision of Rubyists.EU with the Amsterdam Ruby group. At a certain stage, some of the Amsterdam.rb members volunteered to assist us with its functional development.
 
 == Mission
 
@@ -16,11 +17,13 @@ United we stand out!
 
 = PROJECT
 
-This project is designed to be an extensible client-server architecture entirely built on Open Source technologies. The Ruby programming language [http://www.ruby-lang.org] and the Sinatra web framework [http://sinatrarb.com] have been chosen to be the main orchestrator due to its extreme flexibility, simplicity, and support for REST. The data repository of this project is the PostgreSQL relational database server [http://www.postgresql.com] and its interface provided by DataMapper [http://datamapper.org]. On the front-end side, HAML [http://haml-lang.com] and SASS [http://sass-lang.com] are the perfect tools for generating the HTML structure and CSS representation for the Website. Furthermore, the web interface is powered by the (in)famous Javascript language, JQuery [http://jquery.com], JSON [http://json.org],  and Google Maps API [http://code.google.com/apis/maps/]. Currently, the live version of the website is posted on Heroku [http://heroku.com] due to its easy setup and simple deployment.
+This project is designed to be an extensible client-server architecture entirely built on Open Source technologies. The Ruby programming language [http://www.ruby-lang.org] and the Sinatra web framework [http://sinatrarb.com] were chosen as the main orchestrator due to their flexibility, simplicity, and support for REST. The data repository of this project is the PostgreSQL relational database server [http://www.postgresql.com]. The interface is provided by DataMapper [http://datamapper.org]. On the front-end side, HAML [http://haml-lang.com] and SASS [http://sass-lang.com] are the perfect tools for generating the HTML structure and CSS representation for the Website.  The web interface is powered by the (in)famous Javascript language, JQuery [http://jquery.com], JSON [http://json.org],  and Google Maps API [http://code.google.com/apis/maps/]. Currently, the live version of the website is posted on Heroku [http://heroku.com] due to its easy setup and simple deployment.
 
 == Install
 
-In order to run locally a fork of this project, you need to have installed a version of the Ruby 1.8.X or 1.9.X interpreter [http://www.ruby-lang.org/en/downloads/] and the PostgreSQL [http://www.postgresql.org/download/] database server installed in your machine. You are required to have installed the PostgreSQL libraries in order to compile natively the 'data_objects' and 'do_postgres' gems.
+In order to run a local fork of this project, you need to install a version of the Ruby 1.8.X or 1.9.X 
+interpreter [http://www.ruby-lang.org/en/downloads/] and the PostgreSQL [http://www.postgresql.org/download/] database server.  You must also install the PostgreSQL libraries in order to compile 
+natively the 'data_objects' and 'do_postgres' gems.
 
 == Dependencies
 
@@ -39,31 +42,30 @@ The main dependencies this project requires are the following gems:
 
 == Testing
 
-In the case you would like to execute the different set of tests, you require the following gems:
+If you want to execute a different set of tests, you require the following gems:
 
 * cucumber >= 0.4.2
 * rspec >= 1.2.9
 * selenium >= X.X.X
 * webrat >= 0.5.2
 
-= COLLABORATIONS
+= INVOLVEMENT
 
-Everybody is welcome to collaborate to this project with comments, suggestions, constructive criticism, and even write code for a feature! As a firm believer of respect and communication, every person should be able to express themselves in a context of mutual respect and professionalism. This is essential on this project.
+Everyone is welcome to get involved and assist with the further development of the Rubyists.EU initiative. Involvement could come in different shapes and sizes. You can make this platform better by posting comment, making suggestions, providing constructive criticism, or even writing a piece of code for a feature. Successful collaboration stems from tolerance, respect for different opinions, and professionalism. Nothing else matters.
 
-== Rules
+== RULES of the game
 
-In the case you would like to collaborate with the development of this ambitious initiative, you should never forget a couple of simple but mandatory rules:
+If you want to get involved and  partake in the nitty-gritty development of this ambitious initiative, you should should follow a few very simple, but yet, mandatory rules:
 
 * Follow our Github account.
-* Respect for every person involved, all the time. Any lack of respect will NOT be tolerated!
+* Harbor upmost respect for everyone involved. Any lack of respect will NOT be tolerated!
 * The official language of this project is English.
-* Dialog is essential for the success of this project.
+* Dialog is critical for the implementation and the successful development of this initiative. 
 * Both the roadmap and the features wish-list are published on the Wiki section.
-* In case of doubt, do not be afraid to ask. 
+* In case of doubt, do not hesitate to speak up and ask questions. 
 
-== Collaborators
-
-Here I publish the list of all the people who have collaborated with this initiative so far. 
+== COLLABORATORS
+The current list (in alphabetical order) of all the people who have been involved in the Rubyists.EU initiative. 
 
 * Fernando Vezzosi [http://github.com/bucciarati]
 * Gustavo Malamud [http://github.com/gusma]
@@ -73,8 +75,7 @@ Here I publish the list of all the people who have collaborated with this initia
 * Wijnand Wiersma [http://github.com/wijnand]
 
 = GET IN TOUCH
-
-Please, be welcome to join us and do not hesitate to contact us for any reason. We are looking forward hearing from you!
+Join the Rubyists.EU initiative, get involved, and do not hesitate to contact us, should you have any further questions. We are looking forward to hearing from you!
 
 * E-Mail [info@rubyists.eu]
 * Google Group [http://groups.google.com/group/rubyists-eu]
