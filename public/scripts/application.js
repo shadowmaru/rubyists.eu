@@ -89,7 +89,7 @@ $(document).ready(function() {
 	$.googleMaps.markGroups();
 	// Header.
 	$('.about').click(function(){
-		$('#dialog').css({'width': '700px', 'height': '500px'});
+		$('#dialog').css({'width': '800px', 'height': '550px'});
 		$('#dialog').fadeIn('slow', function(){
 			$('#map, #content').opacity(0.65);
 			$('#dialog > .text').load('/about');
