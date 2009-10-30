@@ -66,7 +66,7 @@ jQuery.googleMaps = {
 }
 
 jQuery.fn.openLink = function(url) {
-	$(this).click(function() {window.open(url, '_self');});
+	$(this).click(function() {window.open(url, '_blank');});
 }
 
 jQuery.fn.opacity = function(value) {
@@ -119,6 +119,6 @@ $(document).ready(function() {
 	$('.facebook').openLink('http://www.facebook.com/pages/Europe/RubyistsEU/188196555796');
 	$('.twitter').openLink('http://twitter.com/rubyists_eu');
 	$('.mailing').openLink('http://groups.google.com/group/rubyists-eu');
-	$('.contribute').openLink('http://github.com/amsterdamrb/rubyists-eu');
+	$('.involved').openLink('http://github.com/rock-n-code/rubyists.eu');
 	$('.license').openLink('http://creativecommons.org/licenses/by-nc-sa/3.0/');
 });
