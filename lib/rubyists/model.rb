@@ -48,7 +48,10 @@ class Group
   validates_format :website, :as => PATTERN_URL, :unless => Proc.new {|group| group.website.empty? }
   
   before :save do
-    throw :halt if Country.get(country_code).nil?
+    country = Country.get(country_code)
+    
+    throw :halt if country.nil?
+    throw :halt unless GoogleMaps.valid_location?(city, country.name)
   end
 end
 

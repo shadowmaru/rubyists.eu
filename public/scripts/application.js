@@ -31,11 +31,8 @@ jQuery.googleMaps = {
 	findAddress: function(location, identifier, callback) {
 		if (geocoder) {
 	    	geocoder.getLatLng(location, function(point) {
-				if (!point) {
-					$.ajax({type: 'DELETE', url: '/groups/' + identifier, async: true});
-					$.goTo('/groups');
-					alert('The given location (' + location + ') was not found on the map.');
-				} else {callback(point);}
+				if (!point) {alert('The given location (' + location + ') was not found on the map.');} 
+				else {callback(point);}
 	      	});
 	  	}
 	},
