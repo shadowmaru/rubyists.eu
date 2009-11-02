@@ -66,7 +66,7 @@ jQuery.googleMaps = {
 }
 
 jQuery.fn.openLink = function(url) {
-	$(this).click(function() {window.open(url, '_blank');});
+	$(this).click(function() {window.open(url, '_self');});
 }
 
 jQuery.fn.opacity = function(value) {
