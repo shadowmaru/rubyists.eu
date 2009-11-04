@@ -116,6 +116,7 @@ $(document).ready(function() {
 	$('.facebook').openLink('http://www.facebook.com/pages/Europe/RubyistsEU/188196555796');
 	$('.twitter').openLink('http://twitter.com/rubyists_eu');
 	$('.mailing').openLink('http://groups.google.com/group/rubyists-eu');
+	$('.wave').openLink('https://wave.google.com/wave/?pli=1#restored:wave:googlewave.com!w%252Ba39S3saqF')
 	$('.irc').openLink('irc://irc.freenode.net/rubyists.eu');
 	$('.involved').openLink('http://github.com/rock-n-code/rubyists.eu');
 	$('.license').openLink('http://creativecommons.org/licenses/by-nc-sa/3.0/');
