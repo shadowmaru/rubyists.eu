@@ -70,6 +70,9 @@ body
     height: 100%
     padding: 0px
 
+    .gmnoprint div:first-child, .gmnoprint div+div
+      display: none !important
+
   #content
     +floating_block(999)
     width: 40%
