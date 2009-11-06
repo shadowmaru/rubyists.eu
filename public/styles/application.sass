@@ -70,17 +70,22 @@ body
     height: 100%
     padding: 0px
 
+    .gmnoprint div[title='Show street map'], 
+    .gmnoprint div[title='Show satellite imagery'], 
+    .gmnoprint div[title='Show imagery with street names']
+      display: none
+
   #content
     +floating_block(999)
     width: 40%
-    height: 100%
-    left: 75px
+    top: 20px
+    left: 90px
+    bottom: 80px
 
     #groups, #events
       position: absolute
-      width: 65%
+      width: 80%
       min-width: 275px
-      top: 65px
       background-color: white
 
       h4
