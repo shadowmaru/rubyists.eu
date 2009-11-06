@@ -1,13 +1,22 @@
 require File.join(File.dirname(__FILE__), 'spec_helper')
+require File.join(File.dirname(__FILE__), 'model_base_spec')
 
 describe Country do
+  context "as a class" do
+    before :all do
+      @class = Country
+    end
+    
+    it_should_behave_like 'A Model::Base class'
+  end
+  
   context "when the data model have been just defined" do
     before :each do
-      Country.destroy_all unless Country.none?
+      Country.clear unless Country.empty?
     end
     
     it "should have no data." do
-      Country.should be_none
+      Country.should be_empty
     end
     
     it "should allow to save a new country with a defined 2-letter uppercased code and a name." do
@@ -15,7 +24,7 @@ describe Country do
       
       country.should be_an_instance_of(Country)
       country.code.should be_an_instance_of(String)
-      country.code.should =~ PATTERN_COUNTRY_CODE
+      country.code.should =~ PATTERN_CODE
       country.name.should be_an_instance_of(String)
       
       country.save
@@ -30,7 +39,8 @@ describe Country do
     it "should not save a new country when any piece of data does not match the defined criteria." do
       countries = [{:code => 'X', :name => 'Test Country'}, {:code => 'Xx', :name => 'Test Country'}, 
                    {:code => 'X0', :name => 'Test Country'}, {:code => 'XXX', :name => 'Test Country'}, 
-                   {:code => nil, :name => 'Test Country'}, {:code => 'XX', :name => nil}, {:code => nil, :name => nil}]
+                   {:code => nil, :name => 'Test Country'}, {:code => 'XX', :name => nil}, 
+                   {:code => 'XX', :name => 'test country'}, {:code => 'XX', :name => 'TEST COUNTRY'}, {:code => nil, :name => nil}]
                    
       countries.each do |country|
         test_country = Country.new(:code => country[:code], :name => country[:name])
@@ -41,12 +51,14 @@ describe Country do
           test_country.code.should be_an_instance_of(String)
            country[:code].length == 2 ? test_country.code.length.should == 2 : 
                                         test_country.code.length.should_not == 2
-           (country[:code] =~ PATTERN_COUNTRY_CODE).nil? ? test_country.code.should_not =~ PATTERN_COUNTRY_CODE :
-                                                           test_country.code.should =~ PATTERN_COUNTRY_CODE
+           (country[:code] =~ PATTERN_CODE).nil? ? test_country.code.should_not =~ PATTERN_CODE :
+                                                   test_country.code.should =~ PATTERN_CODE
         end
         
         unless country[:name].nil?
           test_country.name.should be_an_instance_of(String)
+          (country[:name] =~ PATTERN_NAME).nil? ? test_country.name.should_not =~ PATTERN_NAME :
+                                                  test_country.name.should =~ PATTERN_NAME
         end
         
         test_country.save
@@ -57,20 +69,20 @@ describe Country do
      
     it "should populate its possible values from a comma-separated file." do
       Country.populate
-      Country.all.size.should > 0
+      Country.should_not be_empty
     end
 
     it 'should be able to destroy all countries' do
       Country.create(:code => 'NL', :name => "Netherlands")
       Country.count.should == 1
-      Country.destroy_all
+      Country.clear
       Country.count.should == 0
     end
     
     it 'should know if there are no countries' do
-      Country.none?.should be_true
+      Country.should be_empty
       Country.create(:code => 'NL', :name => "Netherlands")
-      Country.none?.should be_false
+      Country.should_not be_empty
     end
   end
 end
