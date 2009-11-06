@@ -4,7 +4,7 @@ require 'dm-serializer/to_json'
 require 'dm-pager'
 
 PATTERN_CODE = /^[A-Z]{2}$/
-PATTERN_NAME = /^([A-Z][a-z\.\-]*\s?)+$/
+PATTERN_NAME = /^[A-Z][a-zA-Z '&-]*[a-z]$/
 PATTERN_EMAIL = /^(?:[a-z]+)(\.[\w\-]+)*@([\w\-]+)(\.[\w\-\.]+)*(\.[a-z]{2,4})$/i
 PATTERN_URL = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/\.*)?([a-z0-9\-]*\/?)*$/ix
 
@@ -29,7 +29,7 @@ class Country < Model::Base
   has 1, :group
   
   property :code, String, :length => 2, :format => PATTERN_CODE, :key => true
-  property :name, String, :nullable => false
+  property :name, String, :nullable => false, :format => PATTERN_NAME
 
   class << self
     def populate
