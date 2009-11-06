@@ -1,5 +1,4 @@
 require File.join(File.dirname(__FILE__), 'spec_helper')
-require File.join(File.dirname(__FILE__), 'model_base_spec')
 
 describe Country do
   context "as a class" do
