@@ -62,7 +62,7 @@ class Location < Model::Base
   before :save do
     throw :halt unless Geocoder.location?(city, country.name)
     
-    self.latitude, self.longitude = Geocoder.position(city, country.name)
+    self.longitude, self.latitude = Geocoder.position(city, country.name)
   end
 end
 
