@@ -8,10 +8,24 @@ PATTERN_NAME = /^([A-Z][a-z\.\-]*\s?)+$/
 PATTERN_EMAIL = /^(?:[a-z]+)(\.[\w\-]+)*@([\w\-]+)(\.[\w\-\.]+)*(\.[a-z]{2,4})$/i
 PATTERN_URL = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/\.*)?([a-z0-9\-]*\/?)*$/ix
 
-class Country
+module Model
+  class Base
+    class << self
+      def clear
+        all.destroy!
+      end
+    
+      def empty?
+        all.empty?
+      end
+    end
+  end
+end
+
+class Country < Model::Base
   include DataMapper::Resource
   
-  has 1, :user
+#  has 1, :user
   has 1, :group
   
   property :code, String, :length => 2, :format => PATTERN_CODE, :key => true
@@ -34,7 +48,7 @@ class Country
   end
 end
 
-class Group
+class Group < Model::Base
   include DataMapper::Resource
   
   belongs_to :country
@@ -55,21 +69,21 @@ class Group
   end
 end
 
-class User
-  include DataMapper::Resource
-  
-  belongs_to :country
-  
-  property :id, Serial
-  property :openid, String, :nullable => false
-  property :name, String, :nullable => false, :format => PATTERN_NAME
-  property :email, String, :nullable => false, :format => PATTERN_EMAIL
-  property :city, String, :nullable => false, :format => PATTERN_NAME
-
-  before :save do
-    throw :halt if Country.get(country_code).nil?
-  end
-end
+#class User
+#  include DataMapper::Resource
+#  
+#  belongs_to :country
+#  
+#  property :id, Serial
+#  property :openid, String, :nullable => false
+#  property :name, String, :nullable => false, :format => PATTERN_NAME
+#  property :email, String, :nullable => false, :format => PATTERN_EMAIL
+#  property :city, String, :nullable => false, :format => PATTERN_NAME
+#
+#  before :save do
+#    throw :halt if Country.get(country_code).nil?
+#  end
+#end
 
 DataMapper.setup(:default, (ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/rubyists"))
 production? ? DataMapper.auto_upgrade! : DataMapper.auto_migrate! 
