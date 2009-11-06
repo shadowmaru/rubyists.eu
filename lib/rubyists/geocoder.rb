@@ -38,10 +38,9 @@ module Geocoder
     private
     
     def query(city, country)
-      city.gsub!(' ', '+')
-      country.gsub!(' ', '+')
+      location = "#{city.gsub(' ', '+')},+#{country.gsub(' ', '+')}"
       
-      "http://maps.google.com/maps/geo?q=#{city},+#{country}&output=json&oe=utf8&sensor=false"
+      "http://maps.google.com/maps/geo?q=#{location}&output=json&oe=utf8&sensor=false"
     end
   end
 end
