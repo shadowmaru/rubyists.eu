@@ -1,3 +1,6 @@
 dm-validations --version '>= 0.10.1'
+dm-timestamps --version '>= 0.10.1'
 dm-serializer --version '>= 0.10.1'
-dm-pager --version '>= 0.0.7' --source gemcutter.org
+dm-pager --version '>= 0.0.8'
+data_objects --version '>= 0.10.0'
+do_postgres --version '>= 0.10.0'
