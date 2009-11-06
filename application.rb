@@ -27,25 +27,22 @@ end
 get '/groups' do
   session[:page] = params[:page].to_i unless params[:page].nil?
   
-  unless session[:action].nil?
-    @groups = Group.all(:order => [:created_at.desc], :limit => 10)
-    session[:action] = nil
+  if request.xhr?
+    Group.all.to_json(:exclude => [:location_id], :methods => [:location])
   else
-    @groups = Group.all(:order => [:city.asc, :country_code.asc]).page(session[:page], :per_page => 10)
+    @groups = Group.all.page(session[:page], :per_page => 10)  
+    haml :groups
   end
-
-  request.xhr? ? @groups.to_json(:exclude => [:country_code], :methods => [:country]) :
-                 haml(:groups)
 end
 
 post '/groups' do
-  group = Group.new
-
-  group.name = params[:name]
-  group.city = params[:city]
-  group.country_code = params[:country]
-  group.website = params[:website]
-  group.created_at = Time.new 
+  if Location.first(:city => params[:city], :country_code => params[:country]).nil?
+    location = Location.new(:city => params[:city], :country_code => params[:country])
+    location.save
+  end
+  
+  group = Group.new(:name => params[:name], :website => params[:website], :created_at => Time.new)
+  group.location_id = Location.first(:city => params[:city], :country_code => params[:country]).id
   
   group.save
   

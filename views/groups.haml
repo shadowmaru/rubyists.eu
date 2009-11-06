@@ -6,13 +6,13 @@
   - else
     - for group in @groups
       .group
-        %img{:src => "/images/flags/#{group.country_code.downcase}.png"}
+        %img{:src => "/images/flags/#{group.location.country_code.downcase}.png"}
         - if group.website.empty?
           %p.name= group.name
         - else
           %p.name<
             %a{:href => group.website}= group.name
-        %p= group.city
+        %p= group.location.city
   .pagination
     = @groups.pager.to_html('/groups', :size => 5)
   .actions

@@ -1,62 +1,35 @@
 var map = null;
-var geocoder = null;
 var base_url = null;
-
-/*
-function showAddress(address) {
-  var address = address;
-  findAddress(address, function(point) {
-    map.setCenter(point, 8);
-  });
-}
-*/
 
 jQuery.googleMaps = {
 	initialize: function() {
 		if (GBrowserIsCompatible()) {
-			var mapControl = new GLargeMapControl();
-			
-			if (!geocoder) {geocoder = new GClientGeocoder();}
-		
 			if (!map) {
 				map = new GMap2(document.getElementById('map'));
 				
 				map.enableScrollWheelZoom();
-				map.addControl(mapControl);
+				map.enableDoubleClickZoom();
+				
+				map.addControl(new GLargeMapControl3D());
+				map.addControl(new GMapTypeControl());
 			}
 			
 		    map.setCenter(new GLatLng(54.0, -6.24), 4);
 		}
 	}, 
-	findAddress: function(location, identifier, callback) {
-		if (geocoder) {
-	    	geocoder.getLatLng(location, function(point) {
-				if (!point) {alert('The given location (' + location + ') was not found on the map.');} 
-				else {callback(point);}
-	      	});
-	  	}
-	},
-	placeMarker: function(point, text) {
-	  	var text = text;
-	  	var marker = new GMarker(point);
-	  
-		map.addOverlay(marker);
-	  	GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml(text);});
-		
-		return marker;
-	},
 	markGroups: function() {
 		$.getJSON('/groups', function(groups) {
 			$.each(groups, function() {
+				var html = "";
 				var group = this;
-				var location = group.city + ', ' + group.country.name;
+				var marker = new GMarker(new GLatLng(group.location.latitude, group.location.longitude));
+				var location = group.location.city + ', ' + group.location.country_code;
 
-				$.googleMaps.findAddress(location, group.id, function(point) {
-					if (group.website == "") {html = '<h3>' + group.name + '</h3>';}
-					else {html = '<a href="' + group.website + '"><h3>' + group.name + '</h3></a>';}
-					html = html + '<p>' + location + '</p>';
-			    	$.googleMaps.placeMarker(point, html);
-				});				
+				if (group.website == "") {html = '<h3>' + group.name + '</h3><p>' + location + '</p>';} 
+				else {html = '<a href="' + group.website + '"><h3>' + group.name + '</h3></a><p>' + location + '</p>';}
+
+				map.addOverlay(marker);
+				GEvent.addListener(marker, "click", function() {marker.openInfoWindowHtml(html);});
 			});
 		});
 	}
@@ -84,6 +57,8 @@ jQuery.goTo = function(url) {
 $(document).ready(function() {
 	$.googleMaps.initialize();
 	$.googleMaps.markGroups();
+	// Window.
+	$(window).unload(function() {GUnload();});
 	// Header.
 	$('.about').click(function(){
 		$('#dialog').css({'width': '800px', 'height': '550px'});
