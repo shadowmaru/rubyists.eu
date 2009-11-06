@@ -1,6 +1,7 @@
 require 'dm-core'
 require 'dm-validations'
 require 'dm-serializer/to_json'
+require 'dm-timestamps'
 require 'dm-pager'
 
 PATTERN_CODE = /^[A-Z]{2}$/
@@ -73,7 +74,8 @@ class Group < Model::Base
   property :id, Serial
   property :name, String, :nullable => false, :format => PATTERN_NAME
   property :website, String, :nullable => true
-  property :created_at, DateTime, :nullable => false
+  property :created_at, DateTime
+  property :updated_at, DateTime
   
   validates_format :website, :as => PATTERN_URL, :unless => Proc.new {|group| group.website.empty?}
 end
