@@ -6,7 +6,7 @@ describe Geocoder do
     @exceptions = [{:city => 'Parisebboicn eid', :country => 'France'}, {:city => 'Cje Petersburgdbuebdo', :country => 'Russian Federation'}]
   end
   
-  it "should return the point on a map for an existing location." do
+  it 'should return the point on a map for an existing location.' do
     @locations.each do |location|
       location[:city].should be_an_instance_of(String)
       location[:city].should_not be_empty
@@ -21,7 +21,7 @@ describe Geocoder do
     end
   end
   
-  it "should return a NilClass instance for a non-existing location." do
+  it 'should return a NilClass instance for a non-existing location.' do
     @exceptions.each do |location|
       location[:city].should be_an_instance_of(String)
       location[:city].should_not be_empty
@@ -32,7 +32,7 @@ describe Geocoder do
     end
   end
   
-  it "should verify the existence of an existing location." do
+  it 'should verify the existence of an existing location.' do
     @locations.each do |location|
       location[:city].should be_an_instance_of(String)
       location[:city].should_not be_empty
@@ -43,7 +43,7 @@ describe Geocoder do
     end
   end
   
-  it "should not verify the existence of a non-existing location." do
+  it 'should not verify the existence of a non-existing location.' do
     @exceptions.each do |location|
       location[:city].should be_an_instance_of(String)
       location[:city].should_not be_empty
