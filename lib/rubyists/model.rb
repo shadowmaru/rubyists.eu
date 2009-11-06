@@ -25,8 +25,7 @@ end
 class Country < Model::Base
   include DataMapper::Resource
   
-#  has 1, :user
-  has 1, :group
+  has 1, :location
   
   property :code, String, :length => 2, :format => PATTERN_CODE, :key => true
   property :name, String, :nullable => false, :format => PATTERN_NAME
@@ -48,25 +47,37 @@ class Country < Model::Base
   end
 end
 
-class Group < Model::Base
+class Location < Model::Base
   include DataMapper::Resource
   
+  has 1, :group
   belongs_to :country
-
-  property :id, Serial
-  property :name, String, :nullable => false, :format => PATTERN_NAME
-  property :city, String, :nullable => false, :format => PATTERN_NAME
-  property :website, String, :nullable => true
-  property :created_at, DateTime, :nullable => false
   
-  validates_format :website, :as => PATTERN_URL, :unless => Proc.new {|group| group.website.empty? }
+  property :id, Serial
+  property :city, String, :nullable => false, :format => PATTERN_NAME
+  property :latitude, Float, :nullable => false
+  property :longitude, Float, :nullable => false
   
   before :save do
     country = Country.get(country_code)
     
-    throw :halt if country.nil?
-    throw :halt unless GoogleMaps.valid_location?(city, country.name)
+    throw :halt unless Geocoder.location?(city, country.name)
+    
+    latitude, longitude = Geocoder.position(city, country.name)
   end
+end
+
+class Group < Model::Base
+  include DataMapper::Resource
+  
+  belongs_to :location
+
+  property :id, Serial
+  property :name, String, :nullable => false, :format => PATTERN_NAME
+  property :website, String, :nullable => true
+  property :created_at, DateTime, :nullable => false
+  
+  validates_format :website, :as => PATTERN_URL, :unless => Proc.new {|group| group.website.empty?}
 end
 
 #class User
