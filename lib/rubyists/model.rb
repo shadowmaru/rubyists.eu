@@ -5,7 +5,7 @@ require 'dm-timestamps'
 require 'dm-pager'
 
 PATTERN_CODE = /^[A-Z]{2}$/
-PATTERN_NAME = /^[A-Z][a-zA-Z '&-]*[a-z]$/
+PATTERN_NAME = /^[A-Z][a-zA-Z '&-.]*$/
 PATTERN_EMAIL = /^(?:[a-z]+)(\.[\w\-]+)*@([\w\-]+)(\.[\w\-\.]+)*(\.[a-z]{2,4})$/i
 PATTERN_URL = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/\.*)?([a-z0-9\-]*\/?)*$/ix
 
@@ -77,7 +77,7 @@ class Group < Model::Base
   property :created_at, DateTime
   property :updated_at, DateTime
   
-  validates_format :website, :as => PATTERN_URL, :unless => Proc.new {|group| group.website.empty?}
+  validates_format :website, :as => PATTERN_URL, :unless => Proc.new {|group| group.website.nil?}
 end
 
 #class User
