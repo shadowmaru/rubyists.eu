@@ -55,15 +55,13 @@ class Location < Model::Base
   
   property :id, Serial
   property :city, String, :nullable => false, :format => PATTERN_NAME
-  property :latitude, Float, :nullable => false
-  property :longitude, Float, :nullable => false
+  property :latitude, Float
+  property :longitude, Float
   
   before :save do
-    country = Country.get(country_code)
-    
     throw :halt unless Geocoder.location?(city, country.name)
     
-    latitude, longitude = Geocoder.position(city, country.name)
+    self.latitude, self.longitude = Geocoder.position(city, country.name)
   end
 end
 
