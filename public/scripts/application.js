@@ -14,7 +14,7 @@ jQuery.googleMaps = {
 				map.addControl(new GMapTypeControl());
 			}
 			
-		    map.setCenter(new GLatLng(54.0, -6.24), 4);
+		    map.setCenter(new GLatLng(-8.146243, -59.765625), 4);
 		}
 	}, 
 	markGroups: function() {
@@ -87,12 +87,12 @@ $(document).ready(function() {
 	// Content.
 	// ...
 	// Footer.
-	$('.linkedin').openLink('http://www.linkedin.com/groups?gid=2400973');
-	$('.facebook').openLink('http://www.facebook.com/pages/Europe/RubyistsEU/188196555796');
-	$('.twitter').openLink('http://twitter.com/rubyists_eu');
-	$('.mailing').openLink('http://groups.google.com/group/rubyists-eu');
-	$('.wave').openLink('https://wave.google.com/wave/?pli=1#restored:wave:googlewave.com!w%252Ba39S3saqF')
-	$('.irc').openLink('irc://irc.freenode.net/rubyists.eu');
-	$('.involved').openLink('http://github.com/rock-n-code/rubyists.eu');
+	$('.linkedin').openLink('http://www.linkedin.com/groups?about=&gid=160865&goback=%2Egdr_1257619690458_1%2Eanb_160865_*2&report%2Esuccess=r3Tayp0nRRro3Er8iWS8vO-u_mFd11ndGIOEdAI27ES3KgpplepkOcIgotS3mJWzXqb2u21wqjDJwM');
+	$('.facebook').openLink('http://www.facebook.com/group.php?gid=13919915410&ref=ts');
+	$('.twitter').openLink('http://twitter.com/akitaonrails');
+	$('.mailing').openLink('http://groups.google.com/group/rails-br');
+	$('.irc').openLink('irc://irc.freenode.net/rails-br');
+	$('.involved').openLink('http://github.com/akitaonrails/rubyists.eu');
 	$('.license').openLink('http://creativecommons.org/licenses/by-nc-sa/3.0/');
+	$('.ondetrabalhar').openLink('http://ondetrabalhar.com/');
 });

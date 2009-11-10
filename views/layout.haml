@@ -1,15 +1,15 @@
 %html
   %head
-    %meta{:name => 'description', :content => 'Rubyists.eu is the website where European Rubyists and Communities come together!'}
-    %meta{:name => 'keywords', :content => 'Ruby, RUG, Europe, Rubyists, communities, information sharing, experience exchange, projects, collaboration, meet-ups, events, networking, integration'}
+    %meta{:name => 'description', :content => 'Rubistas.com.br é o website onde Rubistas Brasileiros e Comunidades se encontram!'}
+    %meta{:name => 'keywords', :content => 'Ruby, RUG, Brasil, Rubistas, comunidades, compartilhamento de informacoes, troca de experiencias, projetos, colaboracao, encontros, eventos, redes, integracao'}
     %meta{:name => 'author', :content => 'Amsterdam Ruby User Group'}
     -#%meta{:name => 'reply-to', :content => 'info@rubyists.eu'}
     -#%meta{:name => 'copyright', :content => 'copyright © 2009 All right reserved.'}
     -#%meta{:name => 'date', :content => ''}
     %meta{:name => 'robots', :content => 'Index, Follow'}
     %meta{:"http-equiv" => 'Content-Type', :content => 'text/html; charset=utf-8'}
-    %title Rubyists in Europe
-    - google_maps_key = "ABQIAAAAMv3ajeML9HJgSH4_IQl4LhTKvB2o_yGHqu2y3lJ29VG-9vSfqBTvaDedMgLlexiv4_itApR_8aNwzQ"
+    %title Rubistas no Brasil
+    - google_maps_key = "ABQIAAAA88oEEVVez4-D0qgrvFsqyhRxnAyi9w6iwBvIlnUe2yO6Gbt7DBTivKjs7ipCLzrtBN8U2DQQXC0Stg"
     %script{:type => 'text/javascript', :src => "http://maps.google.com/maps?file=api&amp;v=2.x&amp;key=#{google_maps_key}"}
     %script{:type => 'text/javascript', :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'}
     %script{:type => 'text/javascript', :src => '/scripts/application.js'}
@@ -19,8 +19,8 @@
       .title
       .menu
         %ul
-          %li.about About
-          %li.groups Groups
+          -#%li.about Sobre
+          %li.groups Grupos
           -#%li.search Search
     #map
     #content
@@ -30,19 +30,19 @@
       .text
     #footer
       %ul
+        %li.ondetrabalhar OndeTrabalhar
         %li.linkedin LinkedIn
         %li.facebook Facebook
         %li.twitter Twitter
-        %li.mailing Mailing List
-        %li.wave Wave
+        %li.mailing Lista de Mensagens
         %li.irc Irc
-        %li.involved Get Involved
-        %li.license License
+        %li.involved Participe
+        %li.license Licença
     #license
-      %span{:"xmlns:dc" => 'http://purl.org/dc/elements/1.1/', :property => 'dc:title'} Rubyists.EU
-      by
-      %a{:"xmlns:cc" => "http://creativecommons.org/ns#", :href => 'http://rock-n-code.com', :property => 'cc:attributionName', :rel => 'cc:attributionURL'} Rock & Code
-      is licensed under a
+      %span{:"xmlns:dc" => 'http://purl.org/dc/elements/1.1/', :property => 'dc:title'} Rubistas.com.br
+      por
+      %a{:"xmlns:cc" => "http://creativecommons.org/ns#", :href => 'http://rock-n-code.com', :property => 'cc:attributionName', :rel => 'cc:attributionURL'} AkitaOnRails
+      está licenciado sobre a 
       %a{:href => 'http://creativecommons.org/licenses/by-nc-sa/3.0/', :rel => 'license'} Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License
     %script{:type => 'text/javascript'}
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

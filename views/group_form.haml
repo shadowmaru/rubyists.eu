@@ -1,16 +1,16 @@
 %form.groupform{:action => '/groups', :method => 'post'}
   %p
-    %label{:for => 'name'} Name
+    %label{:for => 'name'} Nome
     %input{:name => 'name', :type => 'text'}
   %p
-    %label{:for => 'city'} City
+    %label{:for => 'city'} Cidade
     %input{:name => 'city', :type => 'text'}
   %p
-    %label{:for => 'country'} Country
+    %label{:for => 'country'} País
     %select{:name => 'country'}
       - for country in @countries
         %option{:value => country.code}= country.name
   %p
-    %label{:for => 'website'} Website
+    %label{:for => 'website'} Site
     %input{:name => 'website', :type => 'text'}
-  %input{:type => 'submit', :value => 'Add Group'}
+  %input{:type => 'submit', :value => 'Adicione Grupo'}

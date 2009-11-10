@@ -56,6 +56,7 @@ class Location < Model::Base
   
   property :id, Serial
   property :city, String, :nullable => false, :format => PATTERN_NAME
+  property :country_code, String, :nullable => false
   property :latitude, Float
   property :longitude, Float
   
@@ -80,22 +81,6 @@ class Group < Model::Base
   validates_format :website, :as => PATTERN_URL, :unless => Proc.new {|group| group.website.nil?}
 end
 
-#class User
-#  include DataMapper::Resource
-#  
-#  belongs_to :country
-#  
-#  property :id, Serial
-#  property :openid, String, :nullable => false
-#  property :name, String, :nullable => false, :format => PATTERN_NAME
-#  property :email, String, :nullable => false, :format => PATTERN_EMAIL
-#  property :city, String, :nullable => false, :format => PATTERN_NAME
-#
-#  before :save do
-#    throw :halt if Country.get(country_code).nil?
-#  end
-#end
-
-DataMapper.setup(:default, (ENV['DATABASE_URL'] || "postgres://postgres:postgres@localhost/rubyists"))
+DataMapper.setup(:default, (ENV['DATABASE_URL'] || "postgres://akitaonrails17:rubistas666@postgresql04.akitaonrails.com/akitaonrails17"))
 production? ? DataMapper.auto_upgrade! : DataMapper.auto_migrate! 
 Country.populate

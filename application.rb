@@ -1,3 +1,4 @@
+require 'rubygems'
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 
 require 'sinatra'
@@ -36,17 +37,22 @@ get '/groups' do
 end
 
 post '/groups' do
-  if Location.first(:city => params[:city], :country_code => params[:country]).nil?
+  location = Location.first(:city => params[:city], :country_code => params[:country])
+  if location.nil?
     location = Location.new(:city => params[:city], :country_code => params[:country])
     location.save
   end
   
   group = Group.new(:name => params[:name], :website => params[:website], :created_at => Time.new)
-  group.location_id = Location.first(:city => params[:city], :country_code => params[:country]).id
+  group.location_id = location.id
   
   group.save
   
   redirect '/groups'
+end
+
+get "/groups/error" do
+  haml :group_error
 end
 
 delete '/groups/:id' do
